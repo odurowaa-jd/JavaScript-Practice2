@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROCK PAPER SCISSORS GAME.</title>
+</head>
+<body>
+
+    <p>ROCK PAPER SCISSORS</p>
+    <button id="rock" onclick="
+    playGame('rock');
+    ">Rock</button>
+
+    
+    <button id="paper"
+     onclick="
+     playGame('paper');
+    ">Paper</button>
+
+
+    <button id="scissors"
+     onclick="
+     playGame('scissors');
+    ">Scissors</button>
+
+    <button onclick="
+    score.wins = 0; 
+    score.losses = 0; 
+    score.ties = 0;
+    localStorage.removeItem('score');
+    ">
+      Reset Score
+    </button>
+
+
+  
+  <script>
+
+    // This will return the score object as a JSON string from local storage. We need to parse it to convert it back to a JavaScript object.
+
+    let score = JSON.parse(localStorage.getItem('score')) || {
+      wins: 0, 
+      losses: 0,
+      ties: 0
+    }; // If there is no score in local storage, we        initialize it with default values.
+    
+    /*
+    if (!score) {
+      score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+    }*/
+
+
+  function playGame(playerMove) {
+        const computerMove = pickComputerMove(); // this will print 5, the return value of the function
+
+
+        let result = '';
+
+        if (playerMove === 'scissors') {
+          if (computerMove === 'rock') {
+          result = 'You lose!'
+        
+      } else if (computerMove === 'paper') {
+          result = 'You win!'
+          
+      } else if (computerMove === 'scissors') {
+          result = 'Tie!'
+          
+      }
+
+      
+        } else if (playerMove === 'rock') {
+          if (computerMove === 'rock') {
+              result = 'Tie!'
+          
+          } else if (computerMove === 'paper') {
+              result = 'You lose!'
+              
+          } else if (computerMove === 'scissors') {
+              result = 'You win!'
+              
+          }
+
+
+        } else if (playerMove === 'paper') {
+          if (computerMove === 'rock') {
+              result = 'You win!'
+          
+          } else if (computerMove === 'paper') {
+              result = 'Tie!'
+              
+          } else if (computerMove === 'scissors') {
+              result = 'You lose!'
+              
+          }
+        }
+
+        //OBJECTS - we can use objects to store the score of the game instead of using separate variables for wins, losses, and ties. This makes our code more organized and easier to manage.
+
+        if (result === 'You win!') {
+          score.wins += 1;
+        } else if (result === 'You lose!') {
+          score.losses += 1;
+        } else if (result === 'Tie!') {
+          score.ties += 1;
+        }
+
+        localStorage.setItem('score', JSON.stringify(score)); // Store the score object in local storage as a JSON string.
+
+      
+      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+          }
+
+
+
+  function pickComputerMove() {
+      
+  const randomNumber = (Math.random());
+
+  let computerMove = '';
+
+      if (randomNumber >= 0  && randomNumber < 1/3) {
+      computerMove = 'rock'
+      }else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+      computerMove = 'paper'
+      }
+      else if ( randomNumber >= 2/3 && randomNumber < 1) {
+      computerMove = 'scissors'
+      }
+
+      return computerMove; // this will give the value of computerMove to where the function was called
+      }
+
+  </script>
+</body>
+</html>

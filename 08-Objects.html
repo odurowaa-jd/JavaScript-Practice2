@@ -3,9 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Objects</title>
+  <title>OBJECTS.</title>
 </head>
 <body>
   
+  <script>
+    // Objects are a collection of key-value pairs. They are used to store data in a structured way.
+
+    // const product = {
+    //   name: 'Laptop',//Property.
+    //   price: 999.99,      
+    // };
+
+    // console.log(product); // Output: Laptop and price.
+    // console.log(product.name); // Dot notation. Output: Laptop.
+    // console.log(product.price); // Output: 999.99-price
+
+    // product.name = 'Gaming Laptop'; // Update the name property
+    // console.log(product); // Output: Gaming Laptop
+
+    // product.brand = 'BrandX'; // Add a new property
+    // console.log(product); // Output: Gaming Laptop and brand
+
+    // delete product.brand; // Remove the brand property
+    // console.log(product); // Output: Gaming Laptop without brand
+
+
+    /*
+    const product2 ={
+      name: 'shirt',
+      ['red-color']: 'red shirt',
+      rating: {
+        stars: 4.5,
+        count: 87
+      },
+      fun: function function1(){
+        console.log('This is a function inside an object.');
+      }
+    };
+
+    localStorage.getItem('product2'); // Retrieve the product2 object from local storage. This will return a JSON string.
+
+    console.log(product2); // Output: shirt
+    console.log(product2['name']); // Bracket notation.
+    console.log(product2['red-color']); // We can use either dot notation or bracket notation to access properties. However, if the property name has special characters (like a hyphen), we must use bracket notation.
+
+    //Saving a value inside an object.
+    console.log(product2.rating.stars); // Output: 4.5
+    console.log(product2.rating.count); // Output: 87
+
+    // Calling the function inside the object.
+    product2.fun();
+    
+    JSON.stringify(product2); // Convert the object to a JSON string. This is useful for sending data over the network or storing it in a file.
+
+    console.log(JSON.stringify(product2)); // Output: JSON string representation of the product2 object.
+
+    console.log(JSON.parse(JSON.stringify(product2))); // Convert the JSON string back to a JavaScript object.
+
+   localStorage.setItem('product2', JSON.stringify(product2)); // Store the product2 object in local storage as a JSON string.
+   */
+
+   
+   /*
+   console.log('hello'.toUpperCase()); // Output: HELLO. This is a method that converts the string to uppercase.
+
+   const object1 = {
+    message: 'Hello, World!',
+   };
+
+   const object2 = object1; //Copy by reference. Both object1 and object2 point to the same object in memory.
+
+   object1.message = 'Hello, Universe!'; // Update the message property of object1.
+   console.log(object1); // Output: Hello, Universe!
+   console.log(object2); // Output: Hello, Universe!
+
+   const object3 ={
+    message: 'Hello, Universe!'
+   };
+
+   console.log(object1 === object2); // Output: true. They are the same object in memory.
+   console.log(object1 === object3); // Output: false. They are different objects in memory, even though they have the same content.
+
+   const object4 ={
+    message: 'Hello, Universe!',
+    price: 19.99
+   };
+
+   const { message, price } = object4; // Destructuring assignment. This creates variables named message and price and assigns them the values of object4.message and object4.price.
+   console.log(message); // Output: Hello, Universe!
+   console.log(price); // Output: 19.99
+
+
+   const object5 = {
+    //message: message, // This is shorthand property. It is equivalent to message: message.
+    message,
+    // method: function() {
+    //   console.log('This is a method inside an object.');
+    // }
+    method() {
+      console.log('This is a method inside an object.');
+    } // This is shorthand method definition. It is equivalent to method: function() { ...
+   };
+
+   console.log(object5); // Output: Hello, Universe!
+    object5.method(); 
+
+    */
+  </script>
 </body>
 </html>
