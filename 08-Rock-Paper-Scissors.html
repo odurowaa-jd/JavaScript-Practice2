@@ -24,11 +24,16 @@
      playGame('scissors');
     ">Scissors</button>
 
+    <p class="js-results"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
     <button onclick="
     score.wins = 0; 
     score.losses = 0; 
     score.ties = 0;
     localStorage.removeItem('score');
+    updateScoreElement();
     ">
       Reset Score
     </button>
@@ -36,14 +41,15 @@
 
   
   <script>
-
+                //OBJECTS AND LOCAL STORAGE. 
     // This will return the score object as a JSON string from local storage. We need to parse it to convert it back to a JavaScript object.
 
     let score = JSON.parse(localStorage.getItem('score')) || {
       wins: 0, 
       losses: 0,
       ties: 0
-    }; // If there is no score in local storage, we        initialize it with default values.
+    }; 
+      // If there is no score in local storage, we        initialize it with default values.
     
     /*
     if (!score) {
@@ -54,7 +60,15 @@
       };
     }*/
 
+            //DOM.
+       /*     
+    document.querySelector('.js-score')
+    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+    */
+   updateScoreElement(); // Call the function to update the score element with the initial score values.
 
+
+                  //FUNCTIONS
   function playGame(playerMove) {
         const computerMove = pickComputerMove(); // this will print 5, the return value of the function
 
@@ -99,7 +113,7 @@
               
           }
         }
-
+                 //OBJECTS.
         //OBJECTS - we can use objects to store the score of the game instead of using separate variables for wins, losses, and ties. This makes our code more organized and easier to manage.
 
         if (result === 'You win!') {
@@ -112,12 +126,31 @@
 
         localStorage.setItem('score', JSON.stringify(score)); // Store the score object in local storage as a JSON string.
 
+
+              //DOM.
+         /*     
+      document.querySelector('.js-score')
+        .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+        */
+        //Instead of updating the score element directly in the playGame function, we can create a separate function called updateScoreElement that updates the score element. This way, we can call this function whenever we need to update the score element, and it keeps our code more organized.
+
+        updateScoreElement(); // Call the function to update the score element with the new score values.
+
+        document.querySelector('.js-results')
+        .innerHTML = result;
+
+        document.querySelector('.js-moves')       
+        .innerHTML = `You picked ${playerMove}. Computer picked ${computerMove}.`;
+      }
+
+
       
-      alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
-          }
+                //FUNCTIONS.
 
-
+   function updateScoreElement() {
+    document.querySelector('.js-score')
+    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+   }             
 
   function pickComputerMove() {
       

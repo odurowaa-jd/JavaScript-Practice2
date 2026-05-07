@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Projects.</title>
+</head>
+<body>
+
+     <p>YouTube Subscribe Button</p>
+  <button onclick="
+      subscribe();
+  " class="js-subscribe-btn">Subscribe</button>
+
+  <p><u><b>Rock Paper Scissors Game</b></u></p>
+  <button><a href="08-Rock-Paper-Scissors.html">Click Here</a></button>
+
+
+
+      <p><u><b>Amazon Shipping Calculator</b></u></p>
+      <p>Orders under $40 = $10 shipping</p>
+      <p>Orders $40 and above = FREE shipping</p>
+  <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeydown(event)">
+  <button onclick="
+    calculateTotal();
+  ">Calculate</button>
+
+  <p class="js-total-cost"></p>
+
+
+
+
+  <script>
+
+                //AMAZON SHIPPING CALCULATOR.
+    function handleCostKeydown(event) {
+
+      if (event.key === 'Enter') { 
+        // Check if the Enter key was pressed.
+        calculateTotal(); 
+        // Call the function to calculate the total cost.
+      }
+
+    }
+
+    function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value); 
+        // Convert the input value to a number.
+
+        if (cost < 40) {
+          cost = cost +10;
+        }
+
+        document.querySelector('.js-total-cost')
+        .innerHTML = `Total Cost: $${cost}`;
+    }
+
+
+            //YOUTUBE SUBSCRIBE BUTTON.
+    function subscribe() {
+       const buttonElement = document.querySelector('.js-subscribe-btn');
+
+  if (buttonElement.innerHTML === 'Subscribe') {
+    buttonElement.innerHTML = 'Subscribed!';
+    buttonElement.style.backgroundColor = 'azure';
+  } else {
+    buttonElement.innerHTML = 'Subscribe';
+    buttonElement.style.backgroundColor = '';
+  }
+    }
+
+    /*
+    String(25); // Convert the number 25 to a string. This is useful for concatenating with other strings or displaying it in the user interface.
+    console.log('25'-5); // This will convert the string '25' to a number and then subtract 5, resulting in 20. This is an example of type coercion in JavaScript, where the language automatically converts values to the appropriate type for the operation being performed.
+    console.log('25' + 5); // This will concatenate the string '25' with the number 5, resulting in '255'. This is because the + operator is used for both addition and string concatenation, and when one of the operands is a string, it performs concatenation instead of addition.
+    */
+
+
+            //WINDOW OBJECT.
+     /*
+    window.console.log('Hello'); // This will log 'Hello' to the console. The window object is the global object in a browser environment, and console is a property of the window object that provides access to the browser's debugging console.
+
+    window.alert('This is an alert!'); // This will display an alert dialog with the message 'This is an alert!'. The alert function is a method of the window object that displays an alert dialog with a specified message and an OK button.
+    */
+  </script>
+</body>
+</html>

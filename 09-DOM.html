@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Object Model</title>
+</head>
+<body>
+  <button>HELLO</button>
+  <button class="js-btn">WORLD</button>
+
+  <script>
+                //METHODS OF DOM.
+
+     console.log(document.querySelector('button').innerHTML);
+        // This will select the first button element in the document. It returns a reference to that element.
+
+     (document.querySelector('button')
+        .innerHTML) = 'CLICK ME'; 
+      // This will change the inner HTML of the button to 'CLICK ME'. The original text 'HELLO' will be replaced.
+
+      const buttonElement = document.querySelector('.js-btn');
+      console.log(buttonElement);
+          // This will select the first element with the class 'js-btn' and log its inner HTML, which is 'WORLD'.
+
+    /*
+                //PROPERTIES OF DOM.
+
+    console.log(document.title);
+    document.title = 'DOM'; 
+      // This will change the title of the document to 'DOM'.
+
+    console.log(document.body);
+      // This will log the body element of the document, which contains the button.
+
+    console.log(document.body.innerHTML);  
+      //This controls all html elements inside the body. We can use it to change the content of the body.
+
+    document.body.innerHTML = '<button>HELLO!</button>'; 
+      // This will replace the entire content of the body with a new button that says 'HELLO!'. The original button will be removed.
+    */
+
+  
+
+    /*
+    document.body.innerHTML = 'hello'; // This will replace the entire content of the body with 'hello'. The button will be removed.
+    */
+  </script>
+</body>
+</html>
